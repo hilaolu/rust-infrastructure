@@ -12,9 +12,9 @@ steps:
   - git checkout 0.13.6 
   - cd bin && cargo build --release --features use-openssl
   - mkdir /release/bin
-  - cp build/release/sozu /release/bin  
+  - cp target/release/sozu /release/bin  
   - cd ../ctl && cargo build --release
-  - cp build/release/sozuctl /release/bin  
+  - cp target/release/sozuctl /release/bin  
   volumes:
   - name: release 
     path: /release 
