@@ -1,0 +1,31 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build
+  image: rust:latest
+  commands:
+  - apt install libssl-dev openssl pkg-config -y
+  - cargo install sozu sozuctl 
+    --root /release
+  volumes:
+  - name: release 
+    path: /release 
+
+- name: publish
+  image: plugins/github-release
+  settings:
+    api_key:
+      from_secret: github_token
+    files: 
+      - /release/bin/*
+  volumes:
+  - name: release 
+    path: /release 
+  when:
+    event: tag
+    
+volumes:
+- name: release
+  temp: {}
