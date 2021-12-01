@@ -4,11 +4,15 @@ name: default
 
 steps:
 - name: build
-  image: rust:1.51
+  image: rust:latest
   commands:
-  - apt install libssl-dev openssl pkg-config -y
-  - cargo install sozu sozuctl 
-    --root /release
+  - apt install libssl-dev openssl pkg-config git -y
+  - git clone https://github.com/sozu-proxy/sozu.git
+  - cd sozu
+  - git checkout 0.13.6 
+  - cd bin && cargo build --release --features use-openssl
+  - mkdir /release/bin
+  - cp build/release/{sozu,sozuctl} /release/bin  
   volumes:
   - name: release 
     path: /release 
