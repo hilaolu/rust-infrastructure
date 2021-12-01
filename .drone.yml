@@ -9,7 +9,6 @@ steps:
   - apt install libssl-dev openssl pkg-config git -y
   - git clone https://github.com/sozu-proxy/sozu.git
   - cd sozu
-  - git checkout 0.13.6 
   - cd bin && cargo build --release --features use-openssl
   - mkdir /release/bin
   - cp target/release/sozu /release/bin  
