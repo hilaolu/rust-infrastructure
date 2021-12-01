@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: build
-  image: rust:latest
+  image: rust:1.55
   commands:
   - apt install libssl-dev openssl pkg-config -y
   - cargo install sozu sozuctl 
