@@ -31,8 +31,6 @@ steps:
   volumes:
   - name: release 
     path: /release 
-  when:
-    event: tag
     
 volumes:
 - name: release
