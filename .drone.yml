@@ -6,6 +6,7 @@ steps:
 - name: build
   image: rust:latest
   commands: 
+  - apt update && apt install fish -y
   - fish cargo-rewrk.fish
   volumes:
   - name: release 
