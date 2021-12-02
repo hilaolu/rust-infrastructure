@@ -5,8 +5,9 @@ name: default
 steps:
 - name: build
   image: rust:latest
-  commands:
-  - apt install libssl-dev openssl pkg-config git -y
+  commands: 
+  - apt install libssl-dev openssl pkg-config git fish -y
+  - fish cargo-screeps.fish
   - git clone https://github.com/sozu-proxy/sozu.git
   - cd sozu
   - cd bin && cargo build --release --features use-openssl
