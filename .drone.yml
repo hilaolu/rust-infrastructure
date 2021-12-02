@@ -6,6 +6,7 @@ steps:
 - name: build
   image: rust:latest
   commands: 
+  - apt update
   - apt install libssl-dev openssl pkg-config git fish -y
   - fish cargo-screeps.fish
   - git clone https://github.com/sozu-proxy/sozu.git
