@@ -6,17 +6,7 @@ steps:
 - name: build
   image: rust:latest
   commands: 
-  - apt update
-  - apt install libssl-dev openssl pkg-config git fish -y
-  - fish cargo-screeps.fish
-  - git clone https://github.com/sozu-proxy/sozu.git
-  - cd sozu
-  - cd bin && cargo build --release --features use-openssl
-  - mkdir /release/bin
-  - cd ../ctl && cargo build --release
-  - cd ..
-  - cp target/release/sozu /release/bin  
-  - cp target/release/sozuctl /release/bin  
+  - fish cargo-rewrk.fish
   volumes:
   - name: release 
     path: /release 
