@@ -1,1 +1,1 @@
-cargo install cargo-screeps --target /release
+cargo install cargo-screeps --root /release
